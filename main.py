@@ -4,6 +4,8 @@ from train_test import train_test
 
 from model.AlexNet import AlexNet
 from model.LeNet import LeNet
+from model.GoogLeNet import GoogLeNet
+from model.VGGNet_16 import VGGNet_16
 import torch
 
 
@@ -13,11 +15,12 @@ if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     #choose model
-    model = AlexNet(100).to(device)
+    # model = AlexNet(100).to(device)
+    model = VGGNet_16(100).to(device)
 
     #coose hyperparameter
-    image_size = 227
-    batch_size = 64
+    image_size = 224
+    batch_size = 32
     epochs = 5
     lr = 0.0001
 
