@@ -6,6 +6,7 @@ from model.AlexNet import AlexNet
 from model.LeNet import LeNet
 from model.GoogLeNet import GoogLeNet
 from model.VGGNet_16 import VGGNet_16
+from model.GoogLeNet import GoogLeNet
 import torch
 
 
@@ -16,13 +17,15 @@ if __name__ == '__main__':
     
     #choose model
     # model = AlexNet(100).to(device)
-    model = VGGNet_16(100).to(device)
-
-    #coose hyperparameter
+    #model = VGGNet_16(100).to(device)
+    #googlenet 은 구현만
+    model = GoogLeNet(100).to(device)
+    
+    #choose hyperparameter
     image_size = 224
-    batch_size = 32
+    batch_size = 64
     epochs = 5
-    lr = 0.0001
+    lr = 0.001
 
 
     train_loader, test_loader = dataset(image_size, batch_size)
